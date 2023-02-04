@@ -1,0 +1,3 @@
+
+	this function "tracker.get(e).setVisited(true);" its changing the key so its breaking the method .
+			
