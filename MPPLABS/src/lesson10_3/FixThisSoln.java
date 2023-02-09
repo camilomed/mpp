@@ -8,33 +8,32 @@ public class FixThisSoln {
 	List<String> processList(List<String> list)  {
 		
 	    return list.stream()
-	    		   .map(x -> unchecked((String s) -> doNothingIfShort(s)).apply(x)) // This will fail to compile 
-	               .collect(Collectors.toList());
+	    		   .map(x -> unchecked((String s) -> notMove(s)).apply(x)).collect(Collectors.toList());
 	}
 	
 	 
-	String doNothingIfShort(String input) throws InputTooLongException {
-	    if (input.length() > 3) throw new InputTooLongException();
+	String notMove(String input) throws exceptLong {
+	    if (input.length() > 3) throw new exceptLong();
 	    else return input;
 	}
 	
 	public static void main(String[] args) {
-		FixThisSoln ft = new FixThisSoln();
+		FixThisSoln sonFix = new FixThisSoln();
 		List<String> words1 = Arrays.asList("not", "too", "big", "yet");
-		System.out.println(ft.processList(words1));
+		System.out.println(sonFix.processList(words1));
 		List<String> words2 = Arrays.asList("not", "tooo", "big", "yet");
-		System.out.println(ft.processList(words2));
+		System.out.println(sonFix.processList(words2));
 	}
 	
-	class InputTooLongException extends Exception {
+	class exceptLong extends Exception {
 		private static final long serialVersionUID = 1L;
-		public InputTooLongException() {
+		public exceptLong() {
 			super("Must be length 3 or less");
 		}
-		public InputTooLongException(String s) {
+		public exceptLong(String s) {
 			super(s);
 		}
-		public InputTooLongException(Throwable t) {
+		public exceptLong(Throwable t) {
 			super(t);
 		}
 	}
