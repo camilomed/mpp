@@ -1,4 +1,4 @@
-package lesson10_1bugreporter;
+ package lesson10_1bugreporter;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

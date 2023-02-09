@@ -10,7 +10,7 @@ public class Bifunction {
 
 	private static void lamdaMethod() {
 		// TODO Auto-generated method stub
-		BiFunction<Double, Double, Double> biFuntion = Math::pow;
+		BiFunction<Double, Double, Double> biFuntion =  Math::pow;
 		System.out.println(biFuntion.apply(2.0, 3.0));
 	}
 
