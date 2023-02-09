@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import lesson9_11b.TriFunction;
 
 public class LambdaLibrary {
-	
+	 
 	public final static Function<List<TaxReturn> , List<TaxReturn>> name = list->
 	list.stream().filter(x->x.getSubmitDate().getYear()==2016)
 	.filter(x->x.getType().equals(Type._1040A)).sorted(Comparator.comparing(TaxReturn::getTid)).collect(Collectors.toList());
