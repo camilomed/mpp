@@ -13,7 +13,7 @@ public class Util {
 		
 		for ( T item : list) {
 			
-			if(f1.apply(item)>20) {
+			if(f1.apply(item)>20) { 
 				name.add(
 				f2.apply(item));
 			}
