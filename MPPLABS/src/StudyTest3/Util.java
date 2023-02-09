@@ -15,7 +15,7 @@ public class Util {
 			
 			if(f1.apply(item)>20) { 
 				name.add(
-				f2.apply(item));
+				f2.apply(item)); 
 			}
 		}
 		return list;
