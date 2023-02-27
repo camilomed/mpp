@@ -1,33 +1,37 @@
 package lab2;
 
+
 public class Course {
 
-	private String name;
-	private String phone;
-	private int age;
-	public String getName() {
-		return name;
+	private String number;
+	private String title;
+	private int units;
+	private Person person;
+	
+	public String getNumber() {
+		return number;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setNumber(String number) {
+		this.number = number;
 	}
-	public String getPhone() {
-		return phone;
+	public String getTitle() {
+		return title;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setTSitle(String title) {
+		this.title = title;
 	}
-	public int getAge() {
-		return age;
+	public int getUnits() {
+		return units;
 	}
-	public void setAge(int age) {
-		this.age = age;
+	public void setUnits(int units) {
+		this.units = units;
 	}
-	public Course(String name, String phone, int age) {
+	public Course(String number, String title, int units,Person person) {
 		super();
-		this.name = name;
-		this.phone = phone;
-		this.age = age;
+		this.number = number;
+		this.title = title;
+		this.units = units;
+		this.person= person;
 	}
 
 

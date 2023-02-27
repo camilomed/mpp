@@ -27,7 +27,6 @@ public class DepartmentApplication
       //  addPerson (this replaces the other three methods).
 
       
-      /*******************************************************
       
 		// Create faculty objects
 		Person frankMoore = new Faculty("Frank Moore","472-5921",43,10000);	
@@ -35,8 +34,8 @@ public class DepartmentApplication
 		Person johnDoodle = new Faculty("John Doodle","472-6190",39,8600);
 
 		dept.addPerson (frankMoore);
-		dept.addFaculty(samHoward);
-		dept.addFaculty(johnDoodle);
+		dept.addPerson(samHoward);
+		dept.addPerson(johnDoodle);
 
 
 		// Create student objects
@@ -45,8 +44,8 @@ public class DepartmentApplication
 		Person leeJohnson = new Student("Lee Johnson","472-6009",19,3.65);
 
 		dept.addPerson (johnDoe);
-		dept.addStudent(maryJones);
-		dept.addStudent(leeJohnson);
+		dept.addPerson(maryJones);
+		dept.addPerson(leeJohnson);
 		
 
 		// Create staff objects
@@ -54,8 +53,8 @@ public class DepartmentApplication
 		Person adamDavis = new Staff("Adam Davis","472-7552",50,5500);
 		Person davidHeck = new Staff("David Heck","472-8890",29,3600);
 		dept.addPerson (frankGore);
-		dept.addStaff(adamDavis);
-		dept.addStaff(davidHeck);
+		dept.addPerson(adamDavis);
+		dept.addPerson(davidHeck);
 
 		// Create course objects
 
@@ -69,13 +68,15 @@ However, this mistake below does show us How we could implement the code IF it w
 		Course cs301 = new Course("cs301","Software engg",3, samHoward);
 		Course cs450 = new Course("cs450","Advanced architecture",5,frankMoore);
 		
+		  ((Faculty) frankMoore).addCourse(cs450);
+		  ((Faculty) frankMoore).addCourse(cs360);
+		
 		/*
 		 * The above course objects will go inside either
 		 * a faculty object, or a student object.  Not all of the course
 		 *  objects go into the same object.
 		 * 
 		 *  You would have code that looks something like :
-		 *  frankMoore.addCourse(cs450);
 		 * 
 		 *  The addCourse method would have to be written in
 		 *  the faculty class.  Something similar would be done 
@@ -105,6 +106,9 @@ However, this mistake below does show us How we could implement the code IF it w
             case 'u':
                dept.unitsPerFaculty();
                break;
+            case 'p':
+            	dept.printByType();
+            	break;
             case 'q': return;
             default:
                putText("Invalid entry\n");
