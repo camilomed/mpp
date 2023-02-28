@@ -1,19 +1,15 @@
 package lab2;
 
-public class StaffStudents extends Person{
+public class StaffStudents extends Student{
 
-	private double gpa;
 	private double salary;
-	public StaffStudents(String name, String phone, int age, double gpa, double salary) {
-		super(name, phone, age);
-		this.gpa = gpa;
+	private Staff staff;
+	
+	
+	public StaffStudents(String name, String phone, int age, double gpa,double salary) {
+		super(name, phone, age, gpa);
 		this.salary = salary;
-	}
-	public double getGpa() {
-		return gpa;
-	}
-	public void setGpa(double gpa) {
-		this.gpa = gpa;
+		this.staff = new Staff(name, phone, age, salary);
 	}
 	public double getSalary() {
 		return salary;
@@ -21,6 +17,14 @@ public class StaffStudents extends Person{
 	public void setSalary(double salary) {
 		this.salary = salary;
 	}
+	public Staff getStaff() {
+		return staff;
+	}
+	public void setStaff(Staff staff) {
+		this.staff = staff;
+	}
+	
+	
 	
 	
 }

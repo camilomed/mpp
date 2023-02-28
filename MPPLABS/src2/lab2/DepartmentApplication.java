@@ -3,6 +3,8 @@ package lab2;
 import java.io.*;                 // for I/O
 import java.lang.Integer;  
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 /**
@@ -55,6 +57,11 @@ public class DepartmentApplication
 		dept.addPerson (frankGore);
 		dept.addPerson(adamDavis);
 		dept.addPerson(davidHeck);
+		
+		Person james = new StaffStudents("James","472-3321",33,3.5, 4000);
+		Person andres = new StaffStudents("andres","472-3321",23,4.5, 3000);
+		dept.addPerson(james);
+		dept.addPerson(andres);
 
 		// Create course objects
 
@@ -68,10 +75,21 @@ However, this mistake below does show us How we could implement the code IF it w
 		Course cs301 = new Course("cs301","Software engg",3, samHoward);
 		Course cs450 = new Course("cs450","Advanced architecture",5,frankMoore);
 		
+		  ((Faculty) johnDoodle).addCourse(cs201);
+		  ((Faculty) samHoward).addCourse(cs360);
+		  ((Faculty) johnDoodle).addCourse(cs404);
+		  ((Faculty) johnDoodle).addCourse(cs240);
+		  ((Faculty) samHoward).addCourse(cs301);
 		  ((Faculty) frankMoore).addCourse(cs450);
-		  ((Faculty) frankMoore).addCourse(cs360);
-		
+		  
+		  
+		 ((Student) johnDoe).addCourse(cs450);
+		 ((Student) johnDoe).addCourse(cs201);
+		 ((Student) maryJones).addCourse(cs450);
+//		 ((Student) leeJohnson).addCourse(cs450);
+		 ((Student) leeJohnson).addCourse(cs240);
 		/*
+		 * 
 		 * The above course objects will go inside either
 		 * a faculty object, or a student object.  Not all of the course
 		 *  objects go into the same object.
@@ -91,7 +109,7 @@ However, this mistake below does show us How we could implement the code IF it w
       while(true)
          {
          putText("Enter first letter of ");
-         putText("getTotalSalary, showAllMembers, unitsPerFaculty or quit : ");
+         putText("getTotalSalary, showAllMembers, unitsPerFaculty, printByType p or quit : ");
          int choice = getChar();
          switch(choice)
             {
@@ -106,7 +124,15 @@ However, this mistake below does show us How we could implement the code IF it w
             case 'u':
                dept.unitsPerFaculty();
                break;
+            case 'f':
+            	putText("Enter first letter of ");
+                String facultyName = getString();
+              Person faculty = dept.SearchByName(facultyName);
+              
+//            	ListEstudentsFilterByFaculty(facultyName);
+            	break;
             case 'p':
+            	
             	dept.printByType();
             	break;
             case 'q': return;
@@ -116,6 +142,15 @@ However, this mistake below does show us How we could implement the code IF it w
          }  // end while
       }  // end main()
 // -------------------------------------------------------------
+   
+   
+
+	public static void ListEstudentsFilterByFaculty(String facultyName) {
+		
+		
+		// TODO Auto-generated method stub
+		
+	}
    public static void putText(String s) //writes string s to the screen
       {
       System.out.println(s);

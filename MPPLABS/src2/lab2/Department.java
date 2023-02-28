@@ -2,6 +2,7 @@ package lab2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Department {
 
@@ -28,7 +29,21 @@ public class Department {
 	}
 	
 	public double getTotalSalary() {
-		return 0;
+//		Staff staff=null;
+//		StaffStudents staffStudents =null;
+		double salary =0.0;
+		for ( Person p : listPerson) {
+			if(p instanceof Staff ) {
+				salary += ((Staff) p).getSalary();
+				
+			}else if (p instanceof StaffStudents) {
+				salary += ((StaffStudents) p).getSalary();
+			}else if(p instanceof Faculty) {
+				salary += ((Faculty) p).getSalary();
+			}
+			
+		}
+		return salary;
 	}
 	public void ShowAllMembers() {
 		
@@ -60,6 +75,51 @@ public class Department {
 			}
 		}
 	}
+	public Person SearchByName(String facultyName) {
+//		List<Student> listStudents= new ArrayList<Student>();
+		for (Person p: listPerson) {
+			
+			if (p.getName().equals(facultyName) && p instanceof Faculty) {
+				Faculty faculty = null;
+				faculty = (Faculty) p;
+				List<Course> courses = faculty.getListCourses();
+				for (Course c : courses) {
+					
+				List<List<Course>> finalCourseList = listPerson.stream().filter(y-> y instanceof Student)
+					.map(m->(Student) m).
+					map(m-> m.getListCourses())
+					.filter(m-> m ==c).
+					collect(Collectors.toList());
+//					.filter(m-> m ==c)
+//					.forEach(m-> System.out.println(m));;
+					;
+					;
+//					for ( Person p2 : listPerson) {
+//						if(p2 instanceof Student ) {
+//							Student student =null;
+//							student = (Student) p2;
+//							 List<Course> list2 = student.getListCourses();
+//							for ( Course c2 : list2) {
+//								if (c==c2) {
+//									System.out.println(p2);
+//								}
+//							}
+//						}
+//							
+//						}
+						
+					}
+				
+				return p;
+			}
+		}
+		return null;
+		
+	}
+	
+	
+	
+	
 	public void printByType() {
 		System.out.println("******************************************");
 		System.out.println("Faculty in Computer Science");
@@ -78,5 +138,18 @@ public class Department {
 		System.out.println("Name           "+ "Phone  "+" Age   "+"Salary");
 		listPerson.stream().filter(p->p.getClass().getSimpleName().equals("Staff")).map(p-> (Staff) p).
 		forEach(( p)-> System.out.println(p.getName()+"   "+p.getPhone()+"   "+p.getAge()+"   "+p.getSalary()));
+	}
+
+	public void ListEstudentsFilterByFaculty(String facultyName) {
+		
+		  Person f = SearchByName(facultyName);
+		List<Person> list = listPerson.stream().filter(p->p.getName().equals(facultyName)).collect(Collectors.toList());
+		for ( Person p : list) {
+			
+		}
+		System.out.println(list);
+		
+		// TODO Auto-generated method stub
+		
 	}
 }
