@@ -22,18 +22,19 @@ public class mainCompany {
 		Position pos3 = new Position("new Ia", "its no actual Employees");
 		
 		Department dep1 = new Department("department1", "Seattle");
-		dep1.addDPosition(pos1);
-		dep1.addDPosition(pos2);
-		dep1.addDPosition(pos3);
+		dep1.addPosition(pos1);
+		dep1.addPosition(pos2);
+		dep1.addPosition(pos3);
 		Department dep2 = new Department("Department2", "Chicago");
-		dep2.addDPosition(pos1);
-		dep2.addDPosition(pos2);
+		dep2.addPosition(pos1);
+		dep2.addPosition(pos2);
 		
 		
 		Company company = new Company("Strat up");
 		company.addDepartment(dep1);
 		company.addDepartment(dep2);
 		company.print();
+		System.out.println(company.getSalary());
 	}
 
 }

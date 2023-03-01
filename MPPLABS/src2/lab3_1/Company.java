@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Company {
 	private String Name;
-	private List<Department> department;
+	private List<Department> listDepartments;
 	public Company(String name) {
 		super();
 		Name = name;
-		this.department = new ArrayList<Department>();
+		this.listDepartments = new ArrayList<Department>();
 	}
 	public String getName() {
 		return Name;
@@ -18,14 +18,14 @@ public class Company {
 		Name = name;
 	}
 	public List<Department> getDepartment() {
-		return department;
+		return listDepartments;
 	}
-	public void setDepartment(List<Department> department) {
-		this.department = department;
+	public void setDepartment(List<Department> listDepartments) {
+		this.listDepartments = listDepartments;
 	}
 	
 	public void addDepartment(Department dep) {
-		department.add(dep);
+		listDepartments.add(dep);
 	}
 	@Override
 	public String toString() {
@@ -33,12 +33,20 @@ public class Company {
 	}
 	public void print () {
 		System.out.println(toString());
-		if ( department!=null) {
-			for (Department dep : department) {
+		if ( listDepartments!=null) {
+			for (Department dep : listDepartments) {
 				dep.print();
 			}
 		}
 		
+	}
+	
+	public double getSalary() {
+		double salary=0;
+		for ( Department dep : listDepartments) {
+			salary+=dep.getSalary();
+		}
+		return salary;
 	}
 	
 	

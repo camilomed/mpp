@@ -7,12 +7,12 @@ public class Department {
 	
 	private String name;
 	private String location;
-	private List<Position> position;
+	private List<Position> listPositions;
 	public Department(String name, String location) {
 		super();
 		this.name = name;
 		this.location = location;
-		this.position = new ArrayList<Position>();
+		this.listPositions = new ArrayList<Position>();
 	}
 	public String getName() {
 		return name;
@@ -26,22 +26,22 @@ public class Department {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public List<Position> getPosition() {
-		return position;
+	public List<Position> getlistPositions() {
+		return listPositions;
 	}
-	public void setPosition(List<Position> position) {
-		this.position = position;
+	public void setlistPositions(List<Position> listPositions) {
+		this.listPositions = listPositions;
 	}
 	
-	public void addDPosition(Position pos) {
-		position.add(pos);
+	public void addPosition(Position pos) {
+		listPositions.add(pos);
 	}
 	
 	public void print() {
 		System.out.println("----------------------------------------------------------------");
 		System.out.println(toString());
-		if (position!=null) {
-	for ( Position pos : position) {
+		if (listPositions!=null) {
+	for ( Position pos : listPositions) {
 		pos.print();
 	}
 		}
@@ -52,6 +52,12 @@ public class Department {
 	}
 	
 	
-	
+	public double getSalary() {
+		double salary=0;
+		for ( Position pos : listPositions) {
+			salary+=pos.getSalary();
+		}
+		return salary;
+	}
 
 }

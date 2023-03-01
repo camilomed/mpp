@@ -36,12 +36,6 @@ public class Student extends Person {
 		this.listCourses.add(course);
 	}
 
-
-	@Override
-	public String toString() {
-		return "Student [gpa=" + gpa + ", listCourses=" + listCourses + "]";
-	}
-	
 	
 
 }

@@ -3,6 +3,7 @@ package lab2;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Department {
 
@@ -76,43 +77,60 @@ public class Department {
 		}
 	}
 	public Person SearchByName(String facultyName) {
-//		List<Student> listStudents= new ArrayList<Student>();
+//		
+		
+		System.out.println("/////////////////////////////////////////////");
 		for (Person p: listPerson) {
-			
 			if (p.getName().equals(facultyName) && p instanceof Faculty) {
 				Faculty faculty = null;
 				faculty = (Faculty) p;
 				List<Course> courses = faculty.getListCourses();
 				for (Course c : courses) {
 					
-				List<List<Course>> finalCourseList = listPerson.stream().filter(y-> y instanceof Student)
-					.map(m->(Student) m).
-					map(m-> m.getListCourses())
-					.filter(m-> m ==c).
-					collect(Collectors.toList());
-//					.filter(m-> m ==c)
-//					.forEach(m-> System.out.println(m));;
-					;
-					;
-//					for ( Person p2 : listPerson) {
-//						if(p2 instanceof Student ) {
-//							Student student =null;
-//							student = (Student) p2;
-//							 List<Course> list2 = student.getListCourses();
-//							for ( Course c2 : list2) {
-//								if (c==c2) {
-//									System.out.println(p2);
-//								}
-//							}
-//						}
-//							
-//						}
+					for ( Person p2 : listPerson) {
+						if(p2 instanceof Student ) {
+							Student student =null;
+							student = (Student) p2;
+							 List<Course> list2 = student.getListCourses();
+							for ( Course c2 : list2) {
+								if (c==c2) {
+									System.out.println(p2);
+								}
+							}
+						}
+							
+						}
 						
 					}
 				
 				return p;
 			}
 		}
+		
+//List<Student> listStudents= new ArrayList<Student>();
+//		
+//		for (Person p: listPerson) {
+//			List<Course> CoursesStr = listPerson.stream().filter(n-> n.getName().equals(facultyName)).
+//					filter(y -> y instanceof Faculty)
+//					.map(y-> (Faculty) y).
+//					map(y-> y.getListCourses()).
+//					flatMap(List::stream).collect(Collectors.toList());
+//			for(Course c : CoursesStr) {
+//				for ( Person p2 : listPerson) {
+//					if(p2 instanceof Student ) {
+//						Student student =null;
+//						student = (Student) p2;
+//						student.getListCourses().stream().forEach((x)->{
+//							if(x==c) {
+//								System.out.println(p2);
+//							}
+//						});
+//					}
+//					
+//				}
+//			}
+//				
+//		}
 		return null;
 		
 	}

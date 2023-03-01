@@ -51,6 +51,14 @@ public class Position {
 		return "Position [title=" + title + ", description=" + description + ", listEmployees=" + listEmployees + "]";
 	}
 	
+	public double getSalary() {
+		double salary=0;
+		for (Employee emp: listEmployees) {
+			salary+= emp.getSalary();
+		}
+		return salary;
+		
+	}
 	
 	
 	
