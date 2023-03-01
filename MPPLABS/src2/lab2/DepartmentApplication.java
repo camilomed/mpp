@@ -109,7 +109,7 @@ However, this mistake below does show us How we could implement the code IF it w
       while(true)
          {
          putText("Enter first letter of ");
-         putText("getTotalSalary, showAllMembers, unitsPerFaculty, printByType p or quit : ");
+         putText("getTotalSalary, showAllMembers, unitsPerFaculty,filter Students list by Faculty f,  printByType p or quit : ");
          int choice = getChar();
          switch(choice)
             {

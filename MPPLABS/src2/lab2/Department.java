@@ -107,30 +107,30 @@ public class Department {
 			}
 		}
 		
-//List<Student> listStudents= new ArrayList<Student>();
-//		
-//		for (Person p: listPerson) {
-//			List<Course> CoursesStr = listPerson.stream().filter(n-> n.getName().equals(facultyName)).
-//					filter(y -> y instanceof Faculty)
-//					.map(y-> (Faculty) y).
-//					map(y-> y.getListCourses()).
-//					flatMap(List::stream).collect(Collectors.toList());
-//			for(Course c : CoursesStr) {
-//				for ( Person p2 : listPerson) {
-//					if(p2 instanceof Student ) {
-//						Student student =null;
-//						student = (Student) p2;
-//						student.getListCourses().stream().forEach((x)->{
-//							if(x==c) {
-//								System.out.println(p2);
-//							}
-//						});
-//					}
-//					
-//				}
-//			}
-//				
-//		}
+List<Student> listStudents= new ArrayList<Student>();
+		
+		for (Person p: listPerson) {
+			List<Course> CoursesStr = listPerson.stream().filter(n-> n.getName().equals(facultyName)).
+					filter(y -> y instanceof Faculty)
+					.map(y-> (Faculty) y).
+					map(y-> y.getListCourses()).
+					flatMap(List::stream).collect(Collectors.toList());
+			for(Course c : CoursesStr) {
+				for ( Person p2 : listPerson) {
+					if(p2 instanceof Student ) {
+						Student student =null;
+						student = (Student) p2;
+						student.getListCourses().stream().forEach((x)->{
+							if(x==c) {
+								System.out.println(p2);
+							}
+						});
+					}
+					
+				}
+			}
+				
+		}
 		return null;
 		
 	}

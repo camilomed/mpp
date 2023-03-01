@@ -3,16 +3,23 @@ package lab3_1;
 import java.util.ArrayList;
 import java.util.List;
 
+import lesson7_3.ForEachExample;
+
 public class Position {
 	
 	private String title;
+	private TypePosition typePosition;
 	private String description;
-	private List<Employee> listEmployees;
-	public Position(String title, String description) {
+	private Employee employee;
+	private Position superior;
+	private List<Position> inferior;
+	
+	
+	public Position( TypePosition typePosition, String description, Employee employee) {
 		super();
-		this.title = title;
+		this.typePosition = typePosition;
 		this.description = description;
-		this.listEmployees = new ArrayList<Employee>();
+		this.employee = employee;
 	}
 	public String getTitle() {
 		return title;
@@ -26,40 +33,44 @@ public class Position {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public List<Employee> getListEmployees() {
-		return listEmployees;
+	
+	
+	
+	public TypePosition getTypePosition() {
+		return typePosition;
 	}
-	public void setListEmployees(List<Employee> listEmployees) {
-		this.listEmployees = listEmployees;
+	public void setTypePosition(TypePosition typePosition) {
+		this.typePosition = typePosition;
 	}
-	public void addEmployee(Employee emp) {
-		listEmployees.add(emp);
+	public Employee getEmployee() {
+		return employee;
+	}
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
 	
 	public void print() {
-		System.out.println("*******************************");
 		System.out.println(toString());
-		if (listEmployees!= null) {
-			for(Employee emp : listEmployees) {
-				emp.print();
-			}
-		}
-		
 	}
+
+
 	@Override
 	public String toString() {
-		return "Position [title=" + title + ", description=" + description + ", listEmployees=" + listEmployees + "]";
+		return " [typePosition=" + typePosition + ", description=" + description + ", employee=" + employee
+				+ "]";
 	}
-	
 	public double getSalary() {
 		double salary=0;
-		for (Employee emp: listEmployees) {
-			salary+= emp.getSalary();
-		}
+			salary+= this.employee.getSalary();
+		
 		return salary;
 		
 	}
 	
+	public void changePosition() {
+		
+		
+	}
 	
 	
 	
