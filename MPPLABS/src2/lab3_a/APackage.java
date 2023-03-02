@@ -1,6 +1,6 @@
 package lab3_a;
 
-public abstract class APackage implements IPackage {
+public  class APackage implements IPackage {
 	
 	private String name;
 	private double weight;
@@ -8,6 +8,10 @@ public abstract class APackage implements IPackage {
 	
 	
 	
+	public APackage() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public APackage(String name, double weight, Zone zone) {
 		super();
 		this.name = name;
@@ -26,13 +30,16 @@ public abstract class APackage implements IPackage {
 	public void setZone(Zone zone) {
 		this.zone = zone;
 	}
-	@Override
-	public abstract double getPrice();
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	@Override
+	public double getPrice(APackage p) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 

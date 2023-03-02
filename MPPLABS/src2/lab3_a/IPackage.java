@@ -2,6 +2,6 @@ package lab3_a;
 
 public interface IPackage {
 	
-	public double getPrice();
+	public double getPrice(APackage p);
 
 }
