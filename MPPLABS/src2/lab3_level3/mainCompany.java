@@ -1,0 +1,103 @@
+package lab3_level3;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class mainCompany {
+	
+	public static void main(String[] args) {
+		
+		Date date = new Date(1990, 2, 2);
+		Employee tom = new Employee(1, "Tom", "", "Garcia", "898-79", date, 200000);
+		Employee stan = new Employee(2, "Stan", "", "Garcia", "898-79", date, 140000);
+		Employee sue = new Employee(3, "Sue ", "", "Garcia", "898-79", date, 130000);
+		Employee marc = new Employee(4, "Marc  ", "", "Garcia", "898-79", date, 120000);
+		Employee bill = new Employee(5, "Bill  ", "", "Garcia", "898-79", date, 110000);
+		Employee peter = new Employee(6, "Peter ", "", "Garcia", "898-79", date, 100000);
+		Employee dan = new Employee(7, "Dan  ", "", "Garcia", "898-79", date, 90000);
+		Employee ron = new Employee(8, "Ron  ", "", "Garcia", "898-79", date, 290000);
+		
+		Position posHeadSale= new Position(TypePosition.DeptHead, "",ron);
+		
+		
+		Position pos1= new Position(TypePosition.Senior1, "",stan);
+		Position pos2= new Position(TypePosition.Junior1, "",tom);
+		Position pos3= new Position(TypePosition.Junior1, "",sue);
+		Position pos4= new Position(TypePosition.Junior1, "",marc);
+		pos2.setSuperior(pos1);
+		pos3.setSuperior(pos1);
+		pos4.setSuperior(pos1);
+		
+		Position pos6= new Position(TypePosition.Junior2, "",bill);
+		Position pos7= new Position(TypePosition.Junior2, "",dan);
+		Position pos8= new Position(TypePosition.Senior2, "",peter);
+		pos7.setSuperior(pos8);
+		pos6.setSuperior(pos8);
+		
+		Department dep1 = new Department("Sales", "Seattle", posHeadSale);
+//		
+//		dep1.addPosition(pos1);
+//		dep1.addPosition(pos2);
+//		dep1.addPosition(pos3);
+//		dep1.addPosition(pos4);
+//		dep1.addPosition(pos5);
+//		dep1.addPosition(pos6);
+//		dep1.addPosition(pos7);
+//		dep1.addPosition(pos8);
+//		
+//		
+		Employee anne = new Employee(1, "Anne", "", "Garcia", "898-79", date, 200000);
+		Employee gary = new Employee(2, "Gary", "", "Garcia", "898-79", date, 140000);
+		
+//		
+		Position posM1= new Position(TypePosition.DeptHead, "",anne);
+		Position posM2= new Position(TypePosition.Senior1, "",gary);
+		posM2.setSuperior(posM1);
+		Department dep2 = new Department("Marketing", "Seattle", posM1);
+//		Position posM1= new Position(TypePosition.DeptHead, "",empM1);
+//		Position posM2= new Position(TypePosition.Senior1, "",empM2);
+//		Department dep2 = new Department("Marketing", "Seattle");
+//		dep2.addPosition(posM1);
+//		dep2.addPosition(posM2);
+		
+//		Position pos2= new Position(TypePosition.Senior, "");
+			
+		
+//		Position pos2 = new Position("Vice President", "java");
+//		Position pos2 = new Position("Vice President", "java");
+		
+//		Employee emp4 = new Employee(3, "roberto", "perez", "Garcia", "898-79", date, 4000);
+//		Position pos2 = new Position("front End", "Angular");
+//		pos2.setEmployee(emp3);
+//		Position pos3 = new Position("new Ia", "its no actual Employees");
+		
+//		Department dep1 = new Department("department1", "Seattle");
+//		dep1.addPosition(pos1);
+//		dep1.addPosition(pos2);
+//		dep1.addPosition(pos3);
+//		Department dep2 = new Department("Department2", "Chicago");
+//		dep2.addPosition(pos1);
+//		dep2.addPosition(pos2);
+		
+		
+		Company company = new Company("Strat up");
+		company.addDepartment(dep1);
+		company.addDepartment(dep2);
+		
+		   // Print the reporting hierarchy for the sales department
+	    System.out.println("Sales Department Reporting Hierarchy:");
+	    dep1.printReportingHierarchy();
+
+	    // Print the reporting hierarchy for the marketing department
+	    System.out.println("Marketing Department Reporting Hierarchy:");
+	    dep2.printReportingHierarchy();
+
+	    // Print the reporting hierarchy for the entire company
+//	    System.out.println("Company Reporting Hierarchy:");
+//	    company.;
+//		company.print();
+//		System.out.println(company.getSalary());
+	}
+
+}
