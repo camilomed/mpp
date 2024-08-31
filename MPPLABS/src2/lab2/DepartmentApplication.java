@@ -1,6 +1,7 @@
 package lab2;
 
-import java.io.*;                 // for I/O
+import io.github.pixee.security.BoundedLineReader;
+import java.io.*;
 import java.lang.Integer;  
 import java.util.ArrayList;
 import java.util.List;
@@ -160,7 +161,7 @@ However, this mistake below does show us How we could implement the code IF it w
       {
       InputStreamReader isr = new InputStreamReader(System.in);
       BufferedReader br = new BufferedReader(isr);
-      String s = br.readLine();
+      String s = BoundedLineReader.readLine(br, 5_000_000);
       return s;
       }
 // -------------------------------------------------------------
